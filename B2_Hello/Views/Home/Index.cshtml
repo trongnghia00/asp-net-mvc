@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @if (@ViewBag.Id != 0)
+        {
+            <p>ID = @ViewBag.Id Name = @ViewBag.Name</p>
+        }
+        else
+        {
+            <p style="color: red;">ID not found !!!</p>
+        }
+    </div>
+</body>
+</html>
