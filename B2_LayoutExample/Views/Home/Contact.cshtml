@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Điện thoại: @ViewBag.dt</h3>
+
+@if (ViewBag.id == "profile")
+{
+    @section Sidebar {
+        <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Thông tin thêm
+                </a>
+        </li>
+    }
+}
+
+@if (ViewBag.id == "family")
+{
+    @section Sidebar {
+        <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Cây gia phả
+                </a>
+        </li>
+    }
+}
