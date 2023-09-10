@@ -20,9 +20,9 @@ namespace B3_ModelExample.Controllers
                 new Employee {EmpID = 4,EmpName = "Đắc Kỷ", Gender = "Nữ", Image = "https://i.pravatar.cc/150"}
             };
 
-            ViewBag.Employees = employees;
+            // ViewBag.Employees = employees;
 
-            return View();
+            return View(employees);
         }
     }
 }
