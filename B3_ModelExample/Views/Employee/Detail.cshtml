@@ -1,0 +1,26 @@
+﻿@model B3_ModelExample.Models.Employee
+@{
+    ViewBag.Title = "Chi tiết nhân viên";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mã nhân viên:</th>
+        <td>@Model.EmpID</td>
+    </tr>
+    <tr>
+        <th>Tên nhân viên:</th>
+        <td>@Model.EmpName</td>
+    </tr>
+    <tr>
+        <th>Giới tính:</th>
+        <td>@Model.Gender</td>
+    </tr>
+    <tr>
+        <th>Hình ảnh:</th>
+        <td><img src="@Model.Image" width="100px" /></td>
+    </tr>
+</table>
