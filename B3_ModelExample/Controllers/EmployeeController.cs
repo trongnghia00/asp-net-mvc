@@ -40,6 +40,16 @@ namespace B3_ModelExample.Controllers
             return View("NotFound");
         }
 
+        public ActionResult Create() { return View(); }
+
+        [HttpPost]
+        public ActionResult Create(Employee emp)
+        {
+            emp.EmpID = 10;
+            if (emp.Image == null) { emp.Image = "https://i.pravatar.cc/350"; }
+            return View("Detail", emp);
+        }
+
         private List<Employee> GetEmployees()
         {
             return new List<Employee>

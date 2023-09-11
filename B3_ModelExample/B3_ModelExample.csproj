@@ -109,6 +109,7 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Detail.cshtml" />
     <Content Include="Views\Employee\NotFound.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
