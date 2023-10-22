@@ -6,6 +6,19 @@
 
 <h2>@ViewBag.Title</h2>
 
+@using (Html.BeginForm("Index", "Employees", FormMethod.Get, new { id = "myform"}))
+{
+    <p>
+        @Html.DropDownList("sortOrder", new SelectList(
+            new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Sắp xếp theo City", Value = "City" },
+                new SelectListItem { Text = "Sắp xếp theo Phòng ban", Value = "DepartmentName" },
+                new SelectListItem { Text = "Sắp xếp theo ID", Value = "ID" }
+            }, "Value", "Text"), "Chọn cách sắp xếp")
+    </p>
+}
+
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
@@ -26,3 +39,11 @@
     }
 </table>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(function () {
+        $("#sortOrder").change(function () {
+            $("form").submit();
+        });
+    });
+</script>
