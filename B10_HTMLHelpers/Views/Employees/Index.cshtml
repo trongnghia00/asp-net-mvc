@@ -1,0 +1,28 @@
+﻿@model List<B10_HTMLHelpers.Models.Employee>
+@{
+    ViewBag.Title = "Danh sách nhân viên";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>City</th>
+        <th>Department Name</th>
+    </tr>
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => employee.Id)</td>
+            <td>@Html.DisplayFor(modelItem => employee.Name)</td>
+            <td>@Html.DisplayFor(modelItem => employee.Gender)</td>
+            <td>@Html.DisplayFor(modelItem => employee.City)</td>
+            <td>@Html.DisplayFor(modelItem => employee.Department.Name)</td>
+        </tr>
+    }
+</table>
+
