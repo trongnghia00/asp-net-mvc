@@ -34,5 +34,21 @@ namespace B10_HTMLHelpers.Controllers
 
             return View(employees);
         }
+
+        public ActionResult Create() 
+        {
+            MyDBContext db = new MyDBContext();
+            ViewBag.Departments = db.Departments.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employee employee)
+        {
+            MyDBContext db = new MyDBContext();
+            db.Employees.Add(employee);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
