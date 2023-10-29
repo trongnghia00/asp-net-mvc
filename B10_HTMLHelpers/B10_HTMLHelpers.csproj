@@ -109,6 +109,10 @@
     <Compile Include="Migrations\202310221545180_newDB.designer.cs">
       <DependentUpon>202310221545180_newDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310291716249_Validation.cs" />
+    <Compile Include="Migrations\202310291716249_Validation.designer.cs">
+      <DependentUpon>202310291716249_Validation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -132,6 +136,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202310221545180_newDB.resx">
       <DependentUpon>202310221545180_newDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310291716249_Validation.resx">
+      <DependentUpon>202310291716249_Validation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

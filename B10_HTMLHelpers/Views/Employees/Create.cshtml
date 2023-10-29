@@ -13,6 +13,7 @@
         <div class="col-md-6">
             @Html.LabelFor(model => model.Name, "Tên nhân viên")
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
     </div>
     <div class="row my-2">
@@ -20,6 +21,15 @@
         <div class="col-md-6">
             @Html.LabelFor(model => model.City, "Quê quán")
             @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.Age, "Tuổi nhân viên")
+            @Html.TextBoxFor(model => model.Age, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Age)
         </div>
     </div>
     <div class="row my-2">
@@ -30,7 +40,8 @@
                {
                    new SelectListItem() {Text = "Nam", Value = "Nam"},
                    new SelectListItem() {Text = "Nữ", Value = "Nữ"}
-               }, "Chọn Giới tính", new {@class = "form-control"})
+               }, "Chọn Giới tính", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Gender)
         </div>
     </div>
     <div class="row my-2">
@@ -38,10 +49,15 @@
         <div class="col-md-6">
             @Html.LabelFor(model => model.DepID, "Phòng Ban")
             @Html.DropDownListFor(model => model.DepID, new SelectList(ViewBag.Departments, "DepId", "Name"), "Chọn phòng ban", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DepID)
         </div>
     </div>
     <div class="row my-2">
         <div class="col-md-2"></div>
-        <div class="col-md-6"><input type="submit" value="Thêm Nhân Viên" class="btn btn-primary" /></div>
+        <div class="col-md-6">
+            <input type="submit" value="Thêm Nhân Viên" class="btn btn-primary" />
+            <br />@Html.ValidationSummary()
+        </div>
+        
     </div>
 }

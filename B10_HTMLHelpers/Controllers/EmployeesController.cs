@@ -45,10 +45,17 @@ namespace B10_HTMLHelpers.Controllers
         [HttpPost]
         public ActionResult Create(Employee employee)
         {
-            MyDBContext db = new MyDBContext();
-            db.Employees.Add(employee);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                MyDBContext db = new MyDBContext();
+                db.Employees.Add(employee);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
