@@ -1,0 +1,49 @@
+﻿@model B12_UploadImageCart.Models.Product
+@{
+    ViewBag.Title = "Thêm sản phẩm mới";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.Name, "Tên sản phẩm")
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.Description, "Mô tả sản phẩm")
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.Price, "Giá sản phẩm")
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-6">
+            @Html.LabelFor(model => model.Image, "Ảnh sản phẩm")
+            <input type="file" name="imageFile" id="imageFile" class="form-control" />
+            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+        </div>
+    </div>
+}

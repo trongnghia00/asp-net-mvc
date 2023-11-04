@@ -17,7 +17,14 @@
     {
         <tr>
             <td>
-                <img src="~/Images/@item.Image" width="100px" />
+                @if (@item.Image != "")
+                {
+                    <img src="~/Images/@item.Image" width="100px" />
+                }
+                else
+                {
+                    <img src="~/Images/noimage.jpg" width="100px" />
+                }
             </td>
             <td>@Html.DisplayFor(model => item.Name)</td>
             <td>@Html.DisplayFor(model => item.Description)</td>
