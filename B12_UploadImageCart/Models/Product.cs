@@ -15,6 +15,7 @@ namespace B12_UploadImageCart.Models
         [Required]
         public string Description { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
         public decimal Price { get; set; } = decimal.Zero;
         
         public string Image {  get; set; }

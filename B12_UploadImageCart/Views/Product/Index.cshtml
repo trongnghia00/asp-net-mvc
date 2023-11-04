@@ -1,0 +1,27 @@
+﻿@model List<B12_UploadImageCart.Models.Product>
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Images/@item.Image" width="100px" />
+            </td>
+            <td>@Html.DisplayFor(model => item.Name)</td>
+            <td>@Html.DisplayFor(model => item.Description)</td>
+            <td>@Html.DisplayFor(model => item.Price) VNĐ</td>
+        </tr>
+    }
+</table>
