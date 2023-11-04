@@ -82,5 +82,30 @@ namespace B12_UploadImageCart.Controllers
                 return View();
             }
         }
+
+        public ActionResult DeleteImage(int id)
+        {
+            MyDbContext dbContext = new MyDbContext();
+            Product product = dbContext.Products.Where(row => row.ProId == id).FirstOrDefault();
+            if (product != null)
+            {
+                if (product.Image == "")
+                {
+                    return RedirectToAction("Index");
+                }
+
+                string imagePath = Server.MapPath("~/Images/" + product.Image);
+
+                if (System.IO.File.Exists(imagePath))
+                {
+                    // Xóa file
+                    System.IO.File.Delete(imagePath);
+                }
+                product.Image = "";
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -53,7 +53,32 @@
 </div>
 <p>
     @Html.ActionLink("Sửa thông tin", "Edit", new { id = Model.ProId }) |
-    @Html.ActionLink("Sửa ảnh", "EditImage", new { id = Model.ProId }) |
-    @Html.ActionLink("Xóa ảnh", "DeleteImage", new { id = Model.ProId }) |
+    @if (Model.Image != "")
+    {
+        <span>
+            @Html.ActionLink("Sửa ảnh", "EditImage", new { id = Model.ProId }) |
+            @Html.ActionLink("Xóa ảnh", "DeleteImage", new { id = Model.ProId }, new { id = "delete-image-link" }) |
+        </span>
+     } 
+    else
+    {
+        <span>
+            @Html.ActionLink("Thêm ảnh", "AddImage", new { id = Model.ProId }) |
+        </span>
+    }
     @Html.ActionLink("Quay về danh sách", "Index")
 </p>
+
+<script>
+    $(document).ready(function () {
+        $("#delete-image-link").on("click", function (e) {
+            e.preventDefault();
+            var confirmMessage = "Are you sure ?";
+
+            if (confirm(confirmMessage)) {
+                // Nếu người dùng xác nhận (OK), thực hiện chuyển hướng đến action xóa ảnh
+                window.location.href = $(this).attr("href");
+            }
+        });
+    });
+</script>
