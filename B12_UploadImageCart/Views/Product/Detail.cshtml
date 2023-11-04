@@ -1,0 +1,59 @@
+﻿@model B12_UploadImageCart.Models.Product
+
+@{
+    ViewBag.Title = "Thông tin sản phẩm";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @if (Model.Image != "")
+            {
+                <img src="~/Images/@Model.Image" width="200px" />
+            }
+            else
+            {
+                <img src="~/Images/noimage.jpg" width="200px" />
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa thông tin", "Edit", new { id = Model.ProId }) |
+    @Html.ActionLink("Sửa ảnh", "EditImage", new { id = Model.ProId }) |
+    @Html.ActionLink("Xóa ảnh", "DeleteImage", new { id = Model.ProId }) |
+    @Html.ActionLink("Quay về danh sách", "Index")
+</p>

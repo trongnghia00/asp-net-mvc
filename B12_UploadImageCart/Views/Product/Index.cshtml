@@ -26,7 +26,11 @@
                     <img src="~/Images/noimage.jpg" width="100px" />
                 }
             </td>
-            <td>@Html.DisplayFor(model => item.Name)</td>
+            <td>
+                <a href="/Product/Detail/@item.ProId">@Html.DisplayFor(model => item.Name)</a>
+
+                @*@Html.RouteLink(@Html.DisplayFor(model => item.Name).ToString(), new {Controller = "Product", Action = "Detail", id = item.ProId })*@
+            </td>
             <td>@Html.DisplayFor(model => item.Description)</td>
             <td>@Html.DisplayFor(model => item.Price) VNĐ</td>
         </tr>

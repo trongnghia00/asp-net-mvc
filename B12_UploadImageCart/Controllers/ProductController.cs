@@ -18,6 +18,13 @@ namespace B12_UploadImageCart.Controllers
             return View(pros);
         }
 
+        public ActionResult Detail(int id)
+        {
+            MyDbContext dbContext = new MyDbContext();
+            Product product = dbContext.Products.Where(row => row.ProId == id).FirstOrDefault();
+            return View(product);
+        }
+
         public ActionResult Add() { return View(); }
 
         [HttpPost]
