@@ -52,6 +52,7 @@
     </dl>
 </div>
 <p>
+    @Html.ActionLink("Thêm giỏ hàng", "Add", "Cart", new { id = Model.ProId }, null) |
     @Html.ActionLink("Sửa thông tin", "Edit", new { id = Model.ProId }) |
     @if (Model.Image != "")
     {
@@ -59,7 +60,7 @@
             @Html.ActionLink("Sửa ảnh", "EditImage", new { id = Model.ProId }) |
             @Html.ActionLink("Xóa ảnh", "DeleteImage", new { id = Model.ProId }, new { id = "delete-image-link" }) |
         </span>
-     } 
+    }
     else
     {
         <span>
