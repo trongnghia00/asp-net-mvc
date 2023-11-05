@@ -54,5 +54,21 @@ namespace B12_UploadImageCart.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id = 0) 
+        {
+            MyDbContext db = new MyDbContext();
+            if (id > 0)
+            {
+                Cart cartItem = db.Carts.Where(cart => cart.ProId == id).FirstOrDefault();
+                if (cartItem != null)
+                {
+                    db.Carts.Remove(cartItem);
+                    db.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
