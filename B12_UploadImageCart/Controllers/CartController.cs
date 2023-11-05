@@ -39,5 +39,20 @@ namespace B12_UploadImageCart.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult UpdateQuantity(int quan = 0, int proid = 0) 
+        {
+            MyDbContext db = new MyDbContext();
+            if (quan > 0)
+            {
+                Cart cartItem = db.Carts.Where(cart => cart.ProId == proid).FirstOrDefault();
+                if (cartItem != null)
+                {
+                    cartItem.Quantity = quan;
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -19,7 +19,14 @@
         <tr>
             <td>@i</td>
             <td>@item.Product.Name</td>
-            <td>@Html.DisplayFor(model => item.Quantity)</td>
+            <td>
+                @using (Html.BeginForm("UpdateQuantity", "Cart", FormMethod.Get))
+                {
+                    <input type="number" value="@item.Quantity" name="quan" min="1" style="width: 70px;" />
+                    <input type="hidden" name="proid" value="@item.ProId" />
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                }
+            </td>
             <td>
                 @{ 
                     int Price = item.Quantity * item.Product.Price;
