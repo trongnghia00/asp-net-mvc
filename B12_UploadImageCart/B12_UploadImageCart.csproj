@@ -121,7 +121,12 @@
     <Compile Include="Migrations\202311041302491_intPrice.designer.cs">
       <DependentUpon>202311041302491_intPrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311051741298_Add-CartModel.cs" />
+    <Compile Include="Migrations\202311051741298_Add-CartModel.designer.cs">
+      <DependentUpon>202311051741298_Add-CartModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311041302491_intPrice.resx">
       <DependentUpon>202311041302491_intPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311051741298_Add-CartModel.resx">
+      <DependentUpon>202311051741298_Add-CartModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
