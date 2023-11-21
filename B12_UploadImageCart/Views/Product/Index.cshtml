@@ -2,9 +2,23 @@
 @{
     ViewBag.Title = "Danh sách sản phẩm";
     Layout = "~/Views/_LayoutPage.cshtml";
+    var UserName = Context.Request.Cookies["auth"];
+    var Role = Context.Request.Cookies["role"];
 }
 
 <h2>@ViewBag.Title</h2>
+
+<h3>
+    Xin chào 
+    @if (UserName == null)
+    {
+        <span>Khách viếng thăm. Hãy <a href="/User/Login">đăng nhập</a></span>
+    }
+    else
+    {
+        <span>@UserName.Value <a href="/User/Logout">Đăng xuất</a></span>
+    }
+</h3>
 
 <table class="table table-bordered">
     <tr>
