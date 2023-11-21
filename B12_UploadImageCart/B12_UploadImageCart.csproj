@@ -126,10 +126,15 @@
     <Compile Include="Migrations\202311051741298_Add-CartModel.designer.cs">
       <DependentUpon>202311051741298_Add-CartModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311211600062_AddUserModel.cs" />
+    <Compile Include="Migrations\202311211600062_AddUserModel.designer.cs">
+      <DependentUpon>202311211600062_AddUserModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311051741298_Add-CartModel.resx">
       <DependentUpon>202311051741298_Add-CartModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311211600062_AddUserModel.resx">
+      <DependentUpon>202311211600062_AddUserModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
