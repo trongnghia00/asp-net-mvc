@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BCrypt;
 
 namespace B12_UploadImageCart.Controllers
 {
@@ -28,7 +29,7 @@ namespace B12_UploadImageCart.Controllers
                 User myUser = db.Users.Where(u => u.UserName == user.UserName).FirstOrDefault();
                 if (myUser != null)
                 {
-                    if (myUser.Password == user.Password)
+                    if (BCrypt.Net.BCrypt.Verify(user.Password, myUser.Password))
                     {
                         HttpCookie authCookie = new HttpCookie("auth", myUser.UserName);
                         HttpCookie roleCookie = new HttpCookie("role", myUser.Role);
@@ -92,7 +93,7 @@ namespace B12_UploadImageCart.Controllers
 
             myUser = new User();
             myUser.UserName = user.UserName;
-            myUser.Password = user.Password;
+            myUser.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
             myUser.EmailAddress = user.EmailAddress;
             myUser.Role = "user";
             db.Users.Add(myUser);
