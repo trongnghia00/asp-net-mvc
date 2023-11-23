@@ -55,5 +55,50 @@ namespace B12_UploadImageCart.Controllers
 
             return RedirectToAction("Index", "Product");
         }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(User user, string retypePassword)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            if (user.Password != retypePassword)
+            {
+                ModelState.AddModelError("retypePassword", "Passwords do not match.");
+                return View();
+            }
+
+            MyDbContext db = new MyDbContext();
+            User myUser = db.Users.Where(u => u.UserName == user.UserName).FirstOrDefault();
+            if (myUser != null)
+            {
+                ModelState.AddModelError("UserName", "UserName already exist.");
+                return View();
+            }
+
+            myUser = db.Users.Where(u => u.EmailAddress == user.EmailAddress).FirstOrDefault();
+            if (myUser != null)
+            {
+                ModelState.AddModelError("EmailAddress", "EmailAddress already exist.");
+                return View();
+            }
+
+            myUser = new User();
+            myUser.UserName = user.UserName;
+            myUser.Password = user.Password;
+            myUser.EmailAddress = user.EmailAddress;
+            myUser.Role = "user";
+            db.Users.Add(myUser);
+            db.SaveChanges();
+
+            return RedirectToAction("Login");
+        }
     }
 }
