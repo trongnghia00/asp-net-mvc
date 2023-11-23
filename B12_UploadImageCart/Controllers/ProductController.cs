@@ -5,12 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using B12_UploadImageCart.Models;
+using B12_UploadImageCart.Filters;
 
 namespace B12_UploadImageCart.Controllers
 {
     public class ProductController : Controller
     {
         // GET: Product
+        [myAuthenFilter]
         public ActionResult Index()
         {
             MyDbContext db = new MyDbContext();
